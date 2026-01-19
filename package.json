@@ -10,7 +10,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "ShopEasy - A premium full-stack e-commerce platform featuring a modern glassmorphism UI, real-time cart logic, and a robust Node.js/MongoDB backend.",
   "dependencies": {
     "body-parser": "^2.2.2",
     "cors": "^2.8.5",
