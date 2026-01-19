@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Détails du produit | ShopEasy">
+    <title>Détails du produit | shopeasy</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="product1.avif" as="image">
+    <link rel="preload" href="product2.avif" as="image">
+    <link rel="preload" href="product3.avif" as="image">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="main-nav" aria-label="Navigation principale">
+        <div class="logo">
+            <a href="index.html" aria-label="Accueil ShopEasy">
+                <i class="fas fa-shopping-bag logo-icon"></i>
+                <span class="logo-text">ShopEasy</span>
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Accueil</a>
+            <a href="product.html">Produits</a>
+            <a href="about.html">À propos</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Dark Mode">
+            <i class="fas fa-moon"></i>
+        </button>
+        <div class="cart-icon">
+            <a href="checkout.html" id="cart-button" aria-label="Voir le panier">
+                <i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span>
+            </a>
+        </div>
+        <button class="mobile-menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
+            <span class="hamburger-icon"></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu (Hidden by default) -->
+    <div id="mobile-menu" class="mobile-menu" hidden>
+        <a href="index.html">Accueil</a>
+        <a href="product.html">Produits</a>
+        <a href="about.html">À propos</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <main class="product-page">
+        <!-- Product Detail Section -->
+        <section class="product-detail-container" aria-labelledby="product-title">
+            <div class="product-gallery">
+                <img src="product1.avif" alt="Wireless Headphones" id="main-image" class="product-main-image">
+                <div class="thumbnail-container">
+                    <img src="product1.avif" alt="Thumbnail 1" class="thumbnail active" data-name="Wireless Headphones"
+                        data-price="99,99 €"
+                        data-description="Casque audio sans fil premium avec réduction de bruit, autonomie de 30 heures et basses profondes."
+                        data-specs='["Bluetooth 5.0", "Autonomie 30h", "Réduction de bruit"]' role="button"
+                        tabindex="0">
+                    <img src="product2.avif" alt="Thumbnail 2" class="thumbnail" data-name="Casque Gamer RGB"
+                        data-price="129,99 €"
+                        data-description="Casque gaming avec son surround 7.1, éclairage RGB et micro antibruit."
+                        data-specs='["Surround 7.1", "Éclairage RGB", "Micro antibruit"]' role="button" tabindex="0">
+                    <img src="product3.avif" alt="Thumbnail 3" class="thumbnail" data-name="Écouteurs Sport"
+                        data-price="59,99 €"
+                        data-description="Écouteurs sans fil résistants à la transpiration avec ajustement ergonomique et 15h d'autonomie."
+                        data-specs='["Résistant à l\' eau", "Ergonomique" , "15h autonomie" ]' role="button"
+                        tabindex="0">
+                </div>
+            </div>
+            <div class="product-info">
+                <h1 id="product-name">Wireless Headphones</h1>
+                <div class="price-rating">
+                    <p class="price" id="product-price">99,99 €</p>
+                    <div class="rating">★★★★☆ (124 avis)</div>
+                </div>
+                <div class="product-description">
+                    <h2>Description</h2>
+                    <p id="product-description">Casque audio sans fil premium avec réduction de bruit, autonomie de 30
+                        heures et basses profondes.</p>
+                </div>
+                <div class="product-specs">
+                    <h2>Caractéristiques</h2>
+                    <ul class="specs" id="product-specs">
+                        <li><i class="fas fa-check"></i> Bluetooth 5.0</li>
+                        <li><i class="fas fa-check"></i> Autonomie 30h</li>
+                        <li><i class="fas fa-check"></i> Réduction de bruit</li>
+                    </ul>
+                </div>
+                <div class="product-actions">
+                    <div class="quantity-selector">
+                        <button class="qty-btn" id="decrease-qty" aria-label="Diminuer la quantité">-</button>
+                        <span id="quantity" aria-live="polite">1</span>
+                        <button class="qty-btn" id="increase-qty" aria-label="Augmenter la quantité">+</button>
+                    </div>
+                    <button class="add-to-cart" id="add-to-cart-btn">Ajouter au panier</button>
+                </div>
+                <div class="product-meta">
+                    <p><strong>Référence :</strong> HD1234</p>
+                    <p><strong>Catégorie :</strong> Électronique</p>
+                    <p><strong>Livraison :</strong> Livraison gratuite</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Products Section -->
+        <section class="related-products" aria-labelledby="related-products-title">
+            <h2 id="related-products-title">Produits similaires</h2>
+            <div class="product-container" id="product-list">
+                <!-- Products will be loaded dynamically -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Shopping Cart Sidebar -->
+    <aside class="cart-sidebar" id="cart-sidebar" aria-labelledby="cart-title" hidden>
+        <h3 id="cart-title">Votre panier</h3>
+        <div class="cart-items" id="cart-items" aria-live="polite">
+            <!-- Cart items will be added here -->
+        </div>
+        <div class="cart-total">
+            <p>Total : <span id="cart-total">0,00 €</span></p>
+            <a href="checkout.html" class="checkout-btn">Finaliser l'achat</a>
+        </div>
+        <button class="close-cart" id="close-cart" aria-label="Fermer le panier">×</button>
+    </aside>
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>

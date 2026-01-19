@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Finalisez votre commande sur ShopEasy">
+    <title>Paiement | shopeasy</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Preload critical resources -->
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="main-nav" aria-label="Navigation principale">
+        <div class="logo">
+            <a href="index.html" aria-label="Accueil ShopEasy">
+                <i class="fas fa-shopping-bag logo-icon"></i>
+                <span class="logo-text">ShopEasy</span>
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Accueil</a>
+            <a href="product.html">Produits</a>
+            <a href="about.html">À propos</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Dark Mode">
+            <i class="fas fa-moon"></i>
+        </button>
+        <div class="cart-icon">
+            <a href="checkout.html" aria-label="Voir le panier">
+                <i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span>
+            </a>
+        </div>
+        <button class="mobile-menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
+            <span class="hamburger-icon"></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu (Hidden by default) -->
+    <div id="mobile-menu" class="mobile-menu" hidden>
+        <a href="index.html">Accueil</a>
+        <a href="product.html">Produits</a>
+        <a href="about.html">À propos</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <main class="checkout-page">
+        <div class="checkout-layout">
+            <div class="checkout-form">
+                <div class="step-indicator">
+                    <div class="step-line"></div>
+                    <div class="step active">
+                        <div class="step-circle">1</div>
+                        <span>Panier</span>
+                    </div>
+                    <div class="step active">
+                        <div class="step-circle">2</div>
+                        <span>Livraison</span>
+                    </div>
+                    <div class="step">
+                        <div class="step-circle">3</div>
+                        <span>Paiement</span>
+                    </div>
+                    <div class="step">
+                        <div class="step-circle">4</div>
+                        <span>Confirmation</span>
+                    </div>
+                </div>
+
+                <div class="form-section" id="shipping-section">
+                    <h2>Informations de Livraison</h2>
+                    <form id="shipping-form">
+                        <div class="form-group">
+                            <label for="name">Nom Complet *</label>
+                            <input type="text" id="name" required aria-required="true">
+                            <div class="error-message" id="name-error">Veuillez entrer votre nom complet</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" required aria-required="true">
+                            <div class="error-message" id="email-error">Veuillez entrer une adresse email valide</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Numéro de Téléphone *</label>
+                            <input type="tel" id="phone" required aria-required="true">
+                            <div class="error-message" id="phone-error">Veuillez entrer un numéro de téléphone valide
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Adresse de Livraison *</label>
+                            <textarea id="address" required aria-required="true"></textarea>
+                            <div class="error-message" id="address-error">Veuillez entrer votre adresse de livraison
+                            </div>
+                        </div>
+                        <div class="form-group-row">
+                            <div class="form-group">
+                                <label for="city">Ville *</label>
+                                <input type="text" id="city" required aria-required="true">
+                                <div class="error-message" id="city-error">Veuillez entrer votre ville</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="state">État/Province *</label>
+                                <input type="text" id="state" required aria-required="true">
+                                <div class="error-message" id="state-error">Veuillez entrer votre état/province</div>
+                            </div>
+                        </div>
+                        <div class="form-group-row">
+                            <div class="form-group">
+                                <label for="country">Pays *</label>
+                                <select id="country" required aria-required="true">
+                                    <option value="">Sélectionner un pays</option>
+                                    <option value="FR">France</option>
+                                    <option value="BE">Belgique</option>
+                                    <option value="CH">Suisse</option>
+                                    <option value="CA">Canada</option>
+                                    <option value="US">États-Unis</option>
+                                    <option value="UK">Royaume-Uni</option>
+                                    <option value="DE">Allemagne</option>
+                                </select>
+                                <div class="error-message" id="country-error">Veuillez sélectionner votre pays</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="zip">Code Postal *</label>
+                                <input type="text" id="zip" required aria-required="true">
+                                <div class="error-message" id="zip-error">Veuillez entrer votre code postal</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="save-address">
+                                Sauvegarder cette adresse pour de futures commandes
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="billing-same-as-shipping" checked>
+                                Adresse de facturation identique à l'adresse de livraison
+                            </label>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="form-section" id="payment-section">
+                    <h2>Méthode de Paiement</h2>
+                    <div class="payment-methods">
+                        <div class="payment-option active" data-method="credit">
+                            <span><i class="fas fa-credit-card"></i></span> Carte Bancaire
+                        </div>
+                        <div class="payment-option" data-method="paypal">
+                            <span><i class="fab fa-paypal"></i></span> PayPal
+                        </div>
+                        <div class="payment-option" data-method="apple">
+                            <span><i class="fab fa-apple-pay"></i></span> Apple Pay
+                        </div>
+                    </div>
+
+                    <div class="credit-card-form" id="credit-card-form">
+                        <div class="form-group">
+                            <label for="card-holder">Nom du Titulaire *</label>
+                            <input type="text" id="card-holder" required aria-required="true">
+                            <div class="error-message" id="card-holder-error">Veuillez entrer le nom du titulaire</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="card-number">Numéro de Carte *</label>
+                            <input type="text" id="card-number" placeholder="1234 5678 9012 3456" required
+                                aria-required="true">
+                            <div class="error-message" id="card-number-error">Veuillez entrer un numéro de carte valide
+                            </div>
+                        </div>
+                        <div class="form-group-row">
+                            <div class="form-group">
+                                <label for="expiry">Date d'Expiration *</label>
+                                <input type="text" id="expiry" placeholder="MM/AA" required aria-required="true">
+                                <div class="error-message" id="expiry-error">Veuillez entrer une date d'expiration
+                                    valide</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv">CVV *</label>
+                                <input type="text" id="cvv" placeholder="123" required aria-required="true">
+                                <div class="error-message" id="cvv-error">Veuillez entrer votre code CVV</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="paypal-form" id="paypal-form" style="display: none;">
+                        <p>Vous serez redirigé vers PayPal pour finaliser votre paiement après avoir vérifié votre
+                            commande.</p>
+                    </div>
+
+                    <div class="apple-pay-form" id="apple-pay-form" style="display: none;">
+                        <p>Vous serez invité à authentifier votre paiement Apple Pay après avoir passé votre commande.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="security-badges">
+                    <div class="security-badge">
+                        <i class="fas fa-lock"></i>
+                        Paiement Sécurisé
+                    </div>
+                    <div class="security-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        Cryptage SSL
+                    </div>
+                    <div class="security-badge">
+                        <i class="fas fa-exchange-alt"></i>
+                        Retours Faciles
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <a href="terms.html">Conditions Générales</a>
+                    <a href="privacy.html">Politique de Confidentialité</a>
+                    <a href="refund.html">Politique de Remboursement</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
+
+            <div class="order-summary">
+                <h2>Votre Commande</h2>
+                <div id="empty-cart-message" style="display: none;">
+                    <p>Votre panier est vide. <a href="product.html">Continuer vos achats</a></p>
+                </div>
+                <div class="order-items" id="checkout-items">
+                    <!-- Cart items will be loaded here -->
+                </div>
+                <div class="edit-cart-link">
+                    <a href="#" id="edit-cart-btn">Modifier le Panier</a>
+                </div>
+
+                <div class="promo-code">
+                    <h4>Code Promo</h4>
+                    <div class="promo-code-input">
+                        <input type="text" id="promo-code" placeholder="Entrez un code promo">
+                        <button id="apply-promo">Appliquer</button>
+                    </div>
+                    <div id="promo-message"></div>
+                </div>
+
+                <div class="order-totals">
+                    <div class="total-row">
+                        <span>Sous-total:</span>
+                        <span id="subtotal">0,00 €</span>
+                    </div>
+                    <div class="total-row">
+                        <span>Livraison:</span>
+                        <span id="shipping">5,99 €</span>
+                    </div>
+                    <div class="total-row" id="discount-row" style="display: none;">
+                        <span>Réduction:</span>
+                        <span id="discount">-0,00 €</span>
+                    </div>
+                    <div class="total-row" id="tax-row">
+                        <span>TVA (estimée):</span>
+                        <span id="tax">0,00 €</span>
+                    </div>
+                    <div class="total-row grand-total">
+                        <span>Total:</span>
+                        <span id="grand-total">0,00 €</span>
+                    </div>
+                </div>
+
+                <button class="place-order-btn" id="place-order-btn">Passer la Commande</button>
+
+                <div class="estimated-delivery">
+                    <p>Livraison estimée: <span id="delivery-date">5-7 jours ouvrés</span></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Order Confirmation Modal -->
+    <div id="order-confirmation"
+        style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); z-index: 1000; align-items: center; justify-content: center;">
+        <div style="background: white; padding: 2rem; border-radius: 8px; max-width: 500px; text-align: center;">
+            <i class="fas fa-check-circle" style="font-size: 4rem; color: #4CAF50; margin-bottom: 1rem;"></i>
+            <h2>Commande Confirmée!</h2>
+            <p>Votre commande a été passée avec succès.</p>
+            <p>Commande #: <span id="order-number">123456</span></p>
+            <p>Nous avons envoyé un email de confirmation à <span id="confirmation-email"></span></p>
+            <div style="margin-top: 2rem;">
+                <button id="continue-shopping"
+                    style="background: #4CAF50; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 4px; cursor: pointer;">Continuer
+                    vos Achats</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shopping Cart Sidebar -->
+    <aside class="cart-sidebar" id="cart-sidebar" aria-labelledby="cart-title" hidden>
+        <h3 id="cart-title">Votre panier</h3>
+        <div class="cart-items" id="cart-items" aria-live="polite">
+            <!-- Cart items will be added here -->
+        </div>
+        <div class="cart-total">
+            <p>Total : <span id="cart-total">0,00 €</span></p>
+            <a href="checkout.html" class="checkout-btn">Finaliser l'achat</a>
+        </div>
+        <button class="close-cart" id="close-cart" aria-label="Fermer le panier">×</button>
+    </aside>
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>
