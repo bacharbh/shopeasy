@@ -18,10 +18,10 @@ const products = [
         thumbnails: ["https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=200&auto=format&fit=crop", "https://images.unsplash.com/photo-1508685096489-77a46807f0ea?q=80&w=200&auto=format&fit=crop"]
     },
     {
-        name: "4K Action Camera", price: 199.99, image: "https://images.unsplash.com/photo-1526170315830-ef18a2ff48ef?q=80&w=800&auto=format&fit=crop",
+        name: "4K Action Camera", price: 199.99, image: "https://images.unsplash.com/photo-1564466809058-bf4114d55352?q=80&w=800&auto=format&fit=crop",
         description: "Capture your adventures in stunning 4K. Waterproof, shockproof, and ready for action.",
         specs: ["4K Video", "Waterproof", "WiFi"],
-        thumbnails: ["https://images.unsplash.com/photo-1526170315830-ef18a2ff48ef?q=80&w=200&auto=format&fit=crop", "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?q=80&w=200&auto=format&fit=crop"]
+        thumbnails: ["https://images.unsplash.com/photo-1564466809058-bf4114d55352?q=80&w=200&auto=format&fit=crop", "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?q=80&w=200&auto=format&fit=crop"]
     },
     {
         name: "Gaming Mouse RGB", price: 49.99, image: "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?q=80&w=800&auto=format&fit=crop",
@@ -60,10 +60,10 @@ const products = [
         thumbnails: ["https://images.unsplash.com/photo-1590658268037-6bf12165a8df?q=80&w=200&auto=format&fit=crop", "https://images.unsplash.com/photo-1572569028738-411a549d0306?q=80&w=200&auto=format&fit=crop"]
     },
     {
-        name: "Smart Home Hub", price: 149.99, image: "https://images.unsplash.com/photo-1558002038-1091ae57ae43?q=80&w=800&auto=format&fit=crop",
+        name: "Smart Home Hub", price: 149.99, image: "https://images.unsplash.com/photo-1558089687-f282ffcbc126?q=80&w=800&auto=format&fit=crop",
         description: "Control your entire smart home from one device. Voice activated and compatible with all major brands.",
         specs: ["Voice Control", "Zigbee", "WiFi 6"],
-        thumbnails: ["https://images.unsplash.com/photo-1558002038-1091ae57ae43?q=80&w=200&auto=format&fit=crop", "https://images.unsplash.com/photo-1522273400909-fd1a8f77637e?q=80&w=200&auto=format&fit=crop"]
+        thumbnails: ["https://images.unsplash.com/photo-1558089687-f282ffcbc126?q=80&w=200&auto=format&fit=crop", "https://images.unsplash.com/photo-1522273400909-fd1a8f77637e?q=80&w=200&auto=format&fit=crop"]
     },
     {
         name: "Ultra-Wide Monitor", price: 499.99, image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?q=80&w=800&auto=format&fit=crop",
