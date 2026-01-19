@@ -119,6 +119,7 @@ nav {
   color: var(--primary-color);
   background: linear-gradient(135deg, #4F46E5, #10B981);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
@@ -129,6 +130,7 @@ nav {
   letter-spacing: -0.025em;
   background: linear-gradient(135deg, #4F46E5, #10B981);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
