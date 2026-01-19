@@ -107,15 +107,19 @@
 
     <!-- Shopping Cart Sidebar -->
     <aside class="cart-sidebar" id="cart-sidebar" aria-labelledby="cart-title" hidden>
-        <h3 id="cart-title">Votre panier</h3>
+        <div class="cart-header">
+            <h3 id="cart-title">Votre panier</h3>
+            <button class="close-cart" id="close-cart" aria-label="Fermer le panier">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
         <div class="cart-items" id="cart-items" aria-live="polite">
             <!-- Cart items will be added here -->
         </div>
         <div class="cart-total">
-            <p>Total : <span id="cart-total">0,00 €</span></p>
+            <p><span>Total :</span> <span id="cart-total">0,00 €</span></p>
             <a href="checkout.html" class="checkout-btn">Finaliser l'achat</a>
         </div>
-        <button class="close-cart" id="close-cart" aria-label="Fermer le panier">×</button>
     </aside>
 
     <script src="script.js" defer></script>

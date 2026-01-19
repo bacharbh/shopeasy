@@ -120,7 +120,13 @@ function updateCartSidebar() {
     if (!cartItems || !cartTotal) return;
 
     if (cart.length === 0) {
-        cartItems.innerHTML = '<p>Your cart is empty.</p>';
+        cartItems.innerHTML = `
+            <div class="cart-empty-state">
+                <i class="fas fa-shopping-bag"></i>
+                <p>Votre panier est vide</p>
+                <a href="product.html" class="btn" style="margin-top: 1rem; padding: 0.5rem 1rem;">Boutique</a>
+            </div>
+        `;
         cartTotal.textContent = '0.00 €';
     } else {
         cartItems.innerHTML = cart.map(item => `
@@ -130,7 +136,9 @@ function updateCartSidebar() {
                     <h4>${item.name}</h4>
                     <p>${item.price.toFixed(2)} € x ${item.quantity}</p>
                 </div>
-                <button class="remove-item" onclick="removeFromCart('${item.id}')">×</button>
+                <button class="remove-item" title="Supprimer" onclick="removeFromCart('${item.id}')">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
             </div>
         `).join('');
 

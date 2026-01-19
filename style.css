@@ -659,98 +659,95 @@ h2.section-title {
   position: fixed;
   top: 0;
   right: 0;
-  width: 400px;
-  max-width: 90%;
+  width: 450px;
+  max-width: 100%;
   height: 100vh;
   background: var(--bg-surface);
-  box-shadow: -5px 0 30px rgba(0, 0, 0, 0.3);
-  padding: 2rem;
+  box-shadow: -10px 0 50px rgba(0, 0, 0, 0.5);
+  padding: 0;
   z-index: 2000;
   transform: translateX(0);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
+  color: var(--text-main);
+  border-left: 1px solid var(--border-color);
 }
 
 .cart-sidebar[hidden] {
   display: flex !important;
-  /* Force flex for transition logic */
   transform: translateX(100%);
   visibility: hidden;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.5s;
 }
 
 .cart-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 1.5rem;
+  padding: 1.5rem 2rem;
   border-bottom: 1px solid var(--border-color);
-  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.close-btn {
-  background: none;
-  border: none;
+.cart-header h3 {
+  margin: 0;
   font-size: 1.5rem;
-  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.close-cart {
+  background: rgba(128, 128, 128, 0.1);
+  border: none;
+  color: var(--text-main);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  transition: var(--transition);
+}
+
+.close-cart:hover {
+  background: rgba(128, 128, 128, 0.2);
+  transform: rotate(90deg);
 }
 
 .cart-items {
-  flex-grow: 1;
+  flex: 1;
   overflow-y: auto;
-  padding: 1.5rem 0;
-}
-
-.cart-item {
+  padding: 2rem;
   display: flex;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-  align-items: center;
-  background: var(--bg-body);
-  padding: 0.5rem;
-  border-radius: var(--radius-md);
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.cart-item img {
-  width: 64px;
-  height: 64px;
-  border-radius: var(--radius-md);
-  object-fit: cover;
-}
-
-.item-details h4 {
-  color: var(--text-main);
-  font-size: 1rem;
-}
-
-.item-details p {
+.cart-empty-state {
+  text-align: center;
+  padding-top: 5rem;
   color: var(--text-muted);
-  font-size: 0.9rem;
 }
 
-.remove-item {
-  background: transparent;
-  border: none;
-  color: #EF4444;
-  font-size: 1.5rem;
-  cursor: pointer;
-  margin-left: auto;
+.cart-empty-state i {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.3;
 }
 
-.cart-footer {
+.cart-total {
+  padding: 1.5rem 2rem;
+  background: rgba(255, 255, 255, 0.02);
   border-top: 1px solid var(--border-color);
-  padding-top: 1rem;
 }
 
-.cart-total-line {
+.cart-total p {
   display: flex;
   justify-content: space-between;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--text-main);
-  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
 }
 
 .checkout-btn {
@@ -759,16 +756,64 @@ h2.section-title {
   background: var(--primary-color);
   color: white;
   border: none;
-  font-size: 1.1rem;
-  font-weight: 600;
   border-radius: var(--radius-md);
+  font-size: 1.1rem;
+  font-weight: 700;
   cursor: pointer;
-  margin-top: 1rem;
   transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
 }
 
 .checkout-btn:hover {
   background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4);
+}
+
+.cart-item {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  position: relative;
+}
+
+.cart-item img {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+}
+
+.item-details {
+  flex: 1;
+}
+
+.item-details h4 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.1rem;
+}
+
+.item-details p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.cart-item .remove-item {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 5px;
+  transition: color 0.3s ease;
+  margin-left: auto;
+}
+
+.cart-item .remove-item:hover {
+  color: #ef4444;
 }
 
 /* --- CONTACT PAGE --- */
